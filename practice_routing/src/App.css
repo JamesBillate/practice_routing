@@ -1,22 +1,30 @@
 .App {
-  max-width: 960px;
-  margin: 0 auto;
+  margin: 0;
 }
 nav {
+  background-color: #9b0000;
+  color: white;
+  padding: 20px 90px;
   display: flex;
   margin: 0 auto 60px;
   gap: 10px;
   align-items: center;
 }
 nav h1 {
+  font-size: 2rem;
   margin-right: auto;
 }
 nav a {
-  color: #333;
-  padding: 4px 10px;
+  font-size: 1.3rem;
+  color: white;  
+  padding: 20px;
+  text-decoration: none;
+}
+nav a:hover {
+  transform: transform 0.10s ease-in-out;
+  color: rgb(255, 208, 0);
 }
 nav a.active {
-  color: white;
-  background: #333;
+  color: rgb(255, 208, 0);
   text-decoration: none;
 }

@@ -1,7 +1,63 @@
-.home .card {
-  padding: 20px;
+.home {
+  margin: 3rem 6rem; /* Responsive margin */
+}
+
+.home h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 1rem;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem; /* More consistent spacing */
+  justify-content: center; /* Ensures better alignment */
+}
+
+.card {
+  flex: 1 1 calc(33.33% - 1.5rem);
+  max-width: 30rem;
+  padding: 2rem;
   border: 1px solid #e4e4e4;
-  border-radius: 4px;
-  box-shadow: 4px 4px 6px rgba(0,0,0,0.05);
-  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background-color: #fff;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.cards h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.cards h4 {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: normal;
+  color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .card {
+    flex: 1 1 calc(50% - 1.5rem); /* 2 cards per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .home {
+    margin: 2rem;
+  }
+
+  .card {
+    flex: 1 1 100%; /* 1 card per row */
+  }
 }
