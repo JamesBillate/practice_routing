@@ -1,6 +1,6 @@
-import { useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { useFetch } from "../hooks/useFetch"
+import { Link } from 'react-router-dom'
+
 
 import "./Article.css"
 
@@ -25,6 +25,9 @@ export default function Article({articles}) {
 
   return (
     <div className="article">
+
+      <Link className="back" to={`/Home.js`}>{"< Back"}</Link>
+
       {!article && <p>No records found!</p>}
       {article && (
         <div key={article.id}>

@@ -1,13 +1,16 @@
 .about {
     margin: 3rem 6rem;
+    text-align: center;
 }
 
 .about h2 {
-    font-size: 1.8rem;
+    font-size: 3rem;
     font-weight: 600;
 }
 
 .about p {
+    line-height: 180%;
     font-size: 1.2rem;
+    
 }
 
