@@ -8,7 +8,7 @@
   margin: 1rem;
 }
 
-.cards {
+.cardsContainer {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem; /* More consistent spacing */
@@ -18,7 +18,6 @@
 .card {
   flex: 1 1 calc(33.33% - 1.5rem);
   max-width: 30rem;
-  padding: 2rem;
   border: 1px solid #e4e4e4;
   border-radius: 10px;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
@@ -26,19 +25,32 @@
   background-color: #fff;
 }
 
+.card img {
+  width: 100%;
+  object-fit: cover;
+  height: 15rem;
+  margin: 0;
+  margin-bottom: 5px;
+  border-radius: 10px 10px 0px 00px; 
+}
+
+.cardInfo {
+  padding: 1rem 2rem;
+}
+
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-.cards h3 {
+.cardsContainer h3 {
   margin: 0;
   font-size: 1.4rem;
   font-weight: 500;
   color: #333;
 }
 
-.cards h4 {
+.cardsContainer h4 {
   margin-top: 0.5rem;
   font-size: 1.1rem;
   font-weight: normal;

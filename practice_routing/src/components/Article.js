@@ -29,8 +29,9 @@ export default function Article({articles}) {
       {article && (
         <div key={article.id}>
           <h2>{article.title}</h2>
-          <p>By {article.author}</p>
-          <p>{article.body}</p>
+          <p className="author">By {article.author}</p>
+          <img src={article.image} alt={article.title} />
+          <p className="articleBody">{article.body}</p>
         </div>
       )}
     </div>
