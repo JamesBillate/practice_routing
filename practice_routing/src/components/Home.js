@@ -14,7 +14,10 @@ export default function Home({articles}) {
           <div key={article.id} className="card">
             <h3>{article.title}</h3>
             <h4>Written by {article.author}</h4>
-            <Link to={`/articles/${article.id}`}>Read More...</Link>
+            <p>{article.body.slice(0, 200)}
+              <span><Link to={`/articles/${article.id}`}>Read More...</Link></span>
+            </p>
+            
           </div>
         ))}
       </div>

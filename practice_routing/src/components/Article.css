@@ -1,0 +1,12 @@
+.article {
+    margin: 3rem 6rem;
+}
+
+.article h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.article p {
+    font-size: 1.2rem;
+}

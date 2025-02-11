@@ -2,6 +2,8 @@ import { useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { useFetch } from "../hooks/useFetch"
 
+import "./Article.css"
+
 export default function Article({articles}) {
   const { urlId } = useParams()
   //const history = useHistory()
@@ -22,7 +24,7 @@ export default function Article({articles}) {
   }
 
   return (
-    <div>
+    <div className="article">
       {!article && <p>No records found!</p>}
       {article && (
         <div key={article.id}>
