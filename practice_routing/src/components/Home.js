@@ -15,7 +15,7 @@ export default function Home({articles}) {
             <h3>{article.title}</h3>
             <h4>Written by {article.author}</h4>
             <p>{article.body.slice(0, 200)}
-              <span><Link to={`/articles/${article.id}`}>Read More...</Link></span>
+              <span> <Link to={`/articles/${article.id}`}>Read More...</Link></span>
             </p>
             
           </div>

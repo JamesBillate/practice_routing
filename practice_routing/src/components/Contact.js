@@ -12,7 +12,19 @@ export default function Contact() {
   return (
     <div className="contact">
       <h2>Hey {name}, Contact Us</h2>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam explicabo laudantium nemo voluptas cum omnis error voluptate. Nihil numquam ipsum necessitatibus hic odit neque consequuntur dolor. Magni quos ratione iste.</p>
+      <p>We value your feedback and inquiries. If you have any questions, story tips, or collaboration opportunities, feel free to reach out to us.</p>
+      <ul>
+        <li>Email: contact@mario-news.com</li>
+        <li>Phone: +1 (555) 123-4567</li>
+        <li>Address: 123 News Avenue, New York, NY, USA</li>
+      </ul>
+      <p>Follow us on social media to stay updated with the latest news:</p>
+      <ul>
+        <li>Twitter: @MarioNews</li>
+        <li>Facebook: facebook.com/MarioNews</li>
+        <li>Instagram: @MarioNewsOfficial</li>
+      </ul>
+      <p>Thank you for choosing Mario News as your trusted news source!</p>
     </div>
   )
 }
