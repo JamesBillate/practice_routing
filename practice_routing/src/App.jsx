@@ -4,11 +4,9 @@ import {
   Route,
   Routes,
   NavLink,
-  Redirect,
-  Link,
   Navigate,
 } from "react-router-dom";
-import React, { useState } from "react";
+import React from "react";
 
 // page components
 import Home from "./components/Home";
@@ -17,6 +15,34 @@ import Contact from "./components/Contact";
 import Article from "./components/Article";
 
 function App() {
+
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <nav>
+          <h1>Mario News</h1>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/contact">Contact</NavLink>
+        </nav>
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route
+            path="/articles/:urlId"
+            element={<Article />}
+          />
+          <Route path="/*" element={<Navigate to="/" />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
+}
+
+export default App;
+
   // const articles = [
   //   {
   //     id: "1",
@@ -52,29 +78,3 @@ function App() {
   //   },
   // ];
 
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <nav>
-          <h1>Mario News</h1>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
-        </nav>
-
-        <Routes>
-          <Route path="/" element={<Home articles={articles} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route
-            path="/articles/:urlId"
-            element={<Article articles={articles} />}
-          />
-          <Route path="/*" element={<Navigate to="/" />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
-}
-
-export default App;
