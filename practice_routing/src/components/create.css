@@ -1,0 +1,41 @@
+.create {
+    color: #555;
+    max-width: 480px;
+    margin: 60px auto;
+  }
+  .create label span {
+    display: block;
+    margin: 30px 0 10px;
+  }
+  .create p {
+    margin-top: 10px;
+    font-size: 0.8em;
+  }
+  .create button {
+    display: block;
+    font-size: 1.2rem;
+    color: #fff;
+    padding: 10px 30px;
+    border: 0;
+    border-radius: 4px;
+    background-color: #060679;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 20px;
+    border-radius: 10px;
+
+  }
+
+  .inputfield {
+    font-size: 1.1rem;
+    width: 30vh;
+    padding: 13px;
+    border-radius: 10px;
+    border: 1px solid black;
+  }
+
+  .titles {
+    font-size: 1.2rem;
+    color: #55555574;
+    font-weight: bold;
+  }

@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from "react";
-import {getDocs, collection} from "firebase/firestore"
+import {doc, deleteDoc, collection, onSnapshot} from "firebase/firestore"
 import {db} from "../firebase/config.js"
 
 // styles
@@ -10,17 +10,31 @@ export default function Home() {
 
   const [articles, setArticles] = useState(null);
 
+  const navigate = useNavigate()
+
   useEffect(() => {
     const ref = collection(db, 'articles');
-    getDocs(ref)
-      .then((snapshot)=> {
-        let results = []
-        snapshot.docs.forEach(doc => {
-          results.push({id: doc.id, ...doc.data()});
-        });
-        setArticles(results);
-      })
+
+    onSnapshot(ref, (snapshot) => {
+      console.log(snapshot);
+      let results = []
+      console.log(snapshot)
+      snapshot.docs.forEach(doc => {
+        results.push({id: doc.id, ...doc.data()});
+      });
+      console.log(results);
+      setArticles(results);
+    })
   }, [])
+
+  const handleDelete = async (id) => {
+    const ref = doc(db, 'articles', id)
+    await deleteDoc(ref);
+  }
+
+  const handleEdit = async (id) => {
+    navigate(`/edit/${id}`)
+  }
 
   return (
     <div className="home">
@@ -35,6 +49,8 @@ export default function Home() {
               <p>{article.description.slice(0, 200)}
                 <span> <Link to={`/articles/${article.id}`}>Read More...</Link></span>
               </p>
+              <a onClick={() => handleDelete(article.id)}><span className="material-symbols-outlined" style={{cursor: "pointer", marginBottom: "15px", fontSize: "2rem", color: "maroon"}}>delete</span></a>
+              <a onClick={() => handleEdit(article.id)}><span className="material-symbols-outlined" style={{cursor: "pointer", marginBottom: "15px", fontSize: "2rem", color: "orange", marginLeft: "5px"}}>edit</span></a>
             </div>
           </div>
         ))}
