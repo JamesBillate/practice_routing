@@ -25,9 +25,7 @@ function App() {
           <NavLink to="/">Home</NavLink>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/contact">Contact</NavLink>
-          <NavLink to="/formarticle"><span class="material-symbols-outlined">
-add
-</span></NavLink>
+          <NavLink to="/formarticle">Add Article</NavLink>
 
         </nav>
 
@@ -36,7 +34,7 @@ add
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/formarticle" element={<FormArticle />} />
-
+          <Route path="/edit/:urlId" element={<FormArticle />} />
           <Route
             path="/articles/:urlId"
             element={<Article />}

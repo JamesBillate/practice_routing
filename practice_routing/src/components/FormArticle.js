@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import {collection, addDoc} from 'firebase/firestore';
+import { useNavigate, useParams } from 'react-router-dom'
+import {collection, addDoc, doc, getDoc, updateDoc} from 'firebase/firestore';
 import {db} from '../firebase/config'
 // styles
 import './create.css'
@@ -10,16 +10,43 @@ export default function Create() {
   const [author, setAuthor] = useState('')
   const [description, setDescription] = useState('')
   const [image, setImage] = useState('')
+  const [button, setButton] = useState('Submit')
 
-  
+
   const navigate = useNavigate()
+
+  const { urlId } = useParams();
   
+  useEffect(() => {
+    if(urlId) {
+      const ref = doc(db, 'articles', urlId);
+
+      getDoc(ref).then((snapshot) => {
+        const article = snapshot.data();
+        if(article){
+          setTitle(article.title);
+          setDescription(article.description);
+          setAuthor(article.author);
+          setImage(article.image);
+          setButton("Update");
+        } else {
+          navigate('/')
+        }
+      })
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault()   
     const article = {title,author,description,image};
-    const ref = collection(db, 'articles')
-    await addDoc(ref,article)
+
+    if(urlId) {
+      const ref = doc(db, 'articles', urlId);
+      await updateDoc(ref, article)  
+    } else {
+      const ref = collection(db, 'articles')
+      await addDoc(ref,article)
+    }
 
     // setTitle("");
     // setAuthor("");
@@ -75,7 +102,7 @@ export default function Create() {
           />
         </label>
 
-        <button className="btn">Submit</button>
+        <button className="btn">{button}</button>
       </form>
     </div>
   )
