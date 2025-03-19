@@ -19,6 +19,7 @@ import Contact from "./components/Contact";
 import Article from "./components/Article";
 import FormArticle from "./components/FormArticle";
 import Login from "./components/Login";
+import SignUp from "./components/Signup";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -40,10 +41,16 @@ function App() {
       <BrowserRouter>
         <nav>
           <h1>Mario News</h1>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
-          <NavLink to="/formarticle">Add Article</NavLink>
+
+          {user && (
+            <>
+              <NavLink to="/">Home</NavLink>
+              <NavLink to="/about">About</NavLink>
+              <NavLink to="/contact">Contact</NavLink>
+              <NavLink to="/formarticle">Add Article</NavLink>
+              <NavLink to="/login">Log out</NavLink>
+            </>
+          )}
         </nav>
 
         <Routes>
@@ -64,6 +71,7 @@ function App() {
           />
           <Route path="/*" element={<Navigate to="/" />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
         </Routes>
       </BrowserRouter>
     </div>
